@@ -58,7 +58,6 @@ namespace HelloASPDotNet.Controllers
             {
                 return Content("<h1>Ciao " + name + "!</h1>", "text/html");
             }
-
             return Content("<h1>Welcome to my app, " + name + "!</h1>", "text/html");
         }
 

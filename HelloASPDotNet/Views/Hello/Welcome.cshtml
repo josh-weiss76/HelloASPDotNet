@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+
+@if (ViewBag.person == null || ViewBag.person == "")
+{
+    <h1>Welcome World</h1>
+}
+else
+{
+    <h1>Welcome @ViewBag.person!</h1>
+}
+

@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HelloASPDotNet.Controllers
 {
-    [Route("/helloworld")]
+    
     public class HelloController : Controller
     {
         //GET: /<controller>/
+        [Route("/helloworld")]
         [HttpGet]
         public IActionResult Index()
         {
@@ -21,20 +22,21 @@ namespace HelloASPDotNet.Controllers
                     "<option value='spanish'>Spanish</option>" +
                     "<option value='german'>German</option>" +
                     "<option value='italian'>Italian</option>" +
+                "</select>" +
                 "<input type='submit' value='Greet Me!' />" + 
                 "</form>";
             return Content(html, "text/html");
         }
 
         // GET: /hello/welcome
-        //[HttpGet]
-        //[Route("/helloworld/welcome/{name?}")]
-        //[HttpGet("welcome/{name?}")]
-        //[HttpPost]
-        //public IActionResult Welcome(string name = "World")
-        //{
-        //    return Content("<h1>Welcome to my app, " + name + "!</h1>", "text/html");
-        //}
+        [Route("/hello/{name?}")]
+        [HttpPost]
+        public IActionResult Welcome(string name = "World")
+        {
+            return Content("<h1>Welcome to my app, " + name + "!</h1>", "text/html");
+        }
+
+        [Route("/helloworld")]
         [HttpPost]
         public IActionResult CreateMessage(string name, string language)
         {
